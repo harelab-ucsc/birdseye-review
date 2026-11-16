@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "birdseye-review"
+version = "0.1.0"
+description = "Human-in-the-loop review GUI for adjudicating UAV detections against an RTK geotag survey"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "harelab-ucsc"}]
+requires-python = ">=3.10"
+dependencies = ["numpy", "scipy", "scikit-learn", "opencv-python"]
+
+[project.optional-dependencies]
+report = ["reportlab", "matplotlib"]
+detector = ["tensorflow"]
+
+[project.scripts]
+birdseye-review = "birdseye_review.review_gui:main"
+
+[project.urls]
+Homepage = "https://github.com/harelab-ucsc/birdseye-review"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+birdseye_review = ["*.md"]
